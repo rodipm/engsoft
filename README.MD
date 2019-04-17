@@ -1,7 +1,10 @@
 # Projeto Laboratorio de Engenharia de Software
 
+## Clone Repo
+> git clone git@github.com:rodipm/engsoft.git
+
 ## BackEnd
-1. git clone git@github.com:rodipm/engsoft.git
+1. cd back
 2. python -m venv venv (windows) (seguir o tutorial para outros os e caso nao tenha instalado)
 3. venv\Scripts\activate
 3. pip install -r requirements.txt
