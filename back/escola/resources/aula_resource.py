@@ -85,24 +85,4 @@ class AulasResource(Resource):
             return {"message":"Something went wrong while listing aulas"}, 500
         return json, 201
 
-# Definicao para obter o total de horas de voo
-class HorasAulaResource(Resource):
-    # create parser
-    parser = reqparse.RequestParser()
-    parser.add_argument('aluno_id', type=int, required=False)
-
-    def get(self):
-        args = self.parser.parse_args()
-
-        try:
-            if not args['aluno_id']:
-                return {'message': "Request Error (GET): No 'user_id' arg found"}
-
-            # caso nao tenha argumentos no request lista todas as aulas
-            horas_voo = AulaModel.get_horas_voo(args['aluno_id'])
-            return {'horas_voo': horas_voo}
-
-        except Exception as e:
-            print(e)
-            return {"message":"Something went wrong while getting horas_voo"}, 500
-        return json, 201
+        
