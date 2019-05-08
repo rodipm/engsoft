@@ -1,0 +1,19 @@
+{
+  "name": "engsoft",
+  "version": "1.0.0",
+  "description": "## Clone Repo > git clone git@github.com:rodipm/engsoft.git",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodipm/engsoft.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodipm/engsoft/issues"
+  },
+  "homepage": "https://github.com/rodipm/engsoft#readme"
+}
