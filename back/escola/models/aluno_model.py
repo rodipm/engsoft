@@ -1,11 +1,11 @@
 from dao import db, Base
+from escola.models.aula_model import AulaModel
 
 # define a tabela de 'alunos'
 class AlunoModel(Base):
     __tablename__ = 'alunos'
     id = db.Column(db.Integer, primary_key=True) # chave primaria unica e auto-incrementada
     nome = db.Column(db.String(200), unique=False, nullable=False)
-    horas_voo = db.Column(db.Integer, unique=False)
     CPF = db.Column(db.String(14), unique=True, nullable=False) # 123.456.789.00 len = 14
 
     def __init__(self, nome, horas_voo, CPF):
@@ -32,6 +32,14 @@ class AlunoModel(Base):
     @classmethod
     def list(cls):
         return cls.query.all()
+
+    # Retorna horas de voo do aluno
+    @classmethod
+    def get_horas_voo(cls, aluno_id):
+        total = 0
+        for aula in AulaModel.query.filter_by(aluno_id=aluno_id).all():
+            total = total + aula.duracao
+        return total
 
     # remove uma linha da tabela
     def remove(self):
