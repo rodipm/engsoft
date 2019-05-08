@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { RegistroVoo } from './pages/registroVoo';
 
-function App() {
-  return (
-    <div className="">
-    </div>
-  );
-}
+class App extends Component {
+  render(){
+      return (
+        <div className="App">
+          <RegistroVoo />
+        </div>
+      );
+    }
+  }
 
 export default App;
