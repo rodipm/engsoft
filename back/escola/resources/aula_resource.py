@@ -10,6 +10,7 @@ class AulaResource(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('data', type=lambda x: datetime.strptime(x,'%Y-%m-%dT%H:%M:%S'), required=False)
     parser.add_argument('aluno_id', type=int, required=False)
+    parser.add_argument('duracao', type=int, required=False)
 
     def get(self):
         # parse args
@@ -51,7 +52,7 @@ class AulaResource(Resource):
                 return {'message': f"Aula para {args['aluno_id']} em {args['data']} já está cadastrado no sistema."}, 400
             else:
                 # create new aula
-                aula = AulaModel(data=args['data'], aluno_id=args['aluno_id'])
+                aula = AulaModel(data=args['data'], aluno_id=args['aluno_id'], duracao=args['duracao'])
                 # add aulaf
                 aula.add()
 
@@ -83,3 +84,5 @@ class AulasResource(Resource):
             print(e)
             return {"message":"Something went wrong while listing aulas"}, 500
         return json, 201
+
+        
