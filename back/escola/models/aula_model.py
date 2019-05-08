@@ -7,10 +7,13 @@ class AulaModel(Base):
     data = db.Column(db.DateTime, nullable=False) # AAAA-MM-DDTHH:MM:SS
     aluno_id = db.Column(db.Integer, db.ForeignKey('alunos.id'), nullable=False)
     aluno = db.relationship("AlunoModel", backref="aulas")
+    duracao = db.Column(db.Integer, nullable=True)
 
-    def __init__(self, aluno_id, data):
+
+    def __init__(self, aluno_id, data, duracao):
         self.data = data
         self.aluno_id = aluno_id
+        self.duracao = duracao
 
     # adiciona uma linha na respectiva tabela
     def add(self):
@@ -36,6 +39,14 @@ class AulaModel(Base):
     @classmethod
     def list(cls):
         return cls.query.all()
+
+    # Retorna horas de voo do aluno
+    @classmethod
+    def get_horas_voo(cls, aluno_id):
+        total = 0
+        for aula in cls.query.filter_by(aluno_id=aluno_id).all():
+            total = total + aula.duracao
+        return total
 
     # remove uma linha da tabela
     def remove(self):

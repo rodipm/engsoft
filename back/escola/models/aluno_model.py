@@ -1,4 +1,5 @@
 from dao import db, Base
+from escola.models.aula_model import AulaModel
 
 # define a tabela de 'alunos'
 class AlunoModel(Base):

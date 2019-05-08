@@ -5,7 +5,7 @@ from flask_restful import Api
 
 # project imports
 from escola.resources.aluno_resource import AlunoResource, AlunosResource
-from escola.resources.aula_resource import AulaResource, AulasResource
+from escola.resources.aula_resource import AulaResource, AulasResource, HorasAulaResource
 
 # create flask app
 app = Flask(__name__)
@@ -33,6 +33,7 @@ api.add_resource(AlunoResource, '/aluno')
 api.add_resource(AlunosResource, '/alunos')
 api.add_resource(AulaResource, '/aula')
 api.add_resource(AulasResource, '/aulas')
+api.add_resource(HorasAulaResource, '/aluno/horas_voo')
 
 # main
 if __name__ == '__main__':
