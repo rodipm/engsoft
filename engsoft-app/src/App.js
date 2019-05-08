@@ -10,6 +10,10 @@ function App() {
         <p>
           Aeroclube
         </p>
+
+        <p>
+          POXA
+        </p>
         <a
           className="App-link"
           href="https://reactjs.org"
