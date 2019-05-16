@@ -11,7 +11,16 @@ from escola.resources.aula_resource import AulaResource, AulasResource
 app = Flask(__name__)
 
 # configure db
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///banco_projeto_engsoft.db'
+POSTGRES = {
+    'user': 'postgres',
+    'pw': '1234',
+    'db': 'aula_engsoft',
+    'host': 'localhost',
+    'port': '5432',
+}
+app.config['DEBUG'] = True
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///%(user)s:\%(pw)s@%(host)s:%(port)s/%(db)s' % POSTGRES
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///aula_engsoft'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['PROPAGATE_EXCEPTIONS'] = True
 app.config['SQLALCHEMY_ECHO'] = True
