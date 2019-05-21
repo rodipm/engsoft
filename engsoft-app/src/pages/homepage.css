@@ -1,0 +1,73 @@
+#homepage {
+}
+
+#welcome {
+    margin-top: 2em;
+}
+
+.cards {
+    margin-top: 5em;
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+    align-content: space-between;
+}
+
+.texto-homepage {
+    font-size: 2em;
+}
+
+.card-homepage {
+    height: 50vh;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border: 3px solid #F6F8FA;
+    padding: 3em;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+}
+
+.background-image {
+    background-image: url(../img/andrew-palmer-255954-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.card-homepage:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.button-primary {
+    display: flex;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #12a2da;
+    border: 3px solid #12a2da;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 50px;
+    transition: padding 0.3s;
+    align-content: flex-start;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.24);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+}
+
+.button-primary:hover {
+    padding: 0.75rem 2.0rem;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
