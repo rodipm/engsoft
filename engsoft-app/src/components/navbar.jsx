@@ -6,9 +6,10 @@ export class Navbar extends React.Component {
         return (
             <div className="container-fluid" id="navbar">
                 <div className="navbar container">
-                        <a className= "item-nav" href="#">Home</a>
-                        <a className= "item-nav" href="#">Registrar Vôo</a>
-                        <a className= "item-nav" href="#">Consulta de horas</a>
+                        <a className= "item-nav" href="/">Home</a>
+                        <a className= "item-nav" href="/registroVoo">Registrar Vôo</a>
+                        <a className= "item-nav" href="/cadastro">Cadastro</a>
+                        <a className= "item-nav" href="/">Consulta de horas</a>
                 </div>
             </div>
         );
