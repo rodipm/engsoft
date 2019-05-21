@@ -1,0 +1,22 @@
+#navbar {
+    border-bottom: 1px solid #12a2da;
+}
+
+.navbar {
+    margin-top: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.item-nav {
+    font-size: 1.3rem;
+    margin-right: 1.5em;
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    color: #12a2da;
+    text-decoration: none;
+}
