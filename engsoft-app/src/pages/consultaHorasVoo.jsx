@@ -1,50 +1,51 @@
 import React, { Component } from "react";
-import { Navbar } from "../components/navbar";
-import "./consultaHorasVoo.css";
 import axios from 'axios';
+import { Navbar } from "../components/navbar";
+import "./cadastro.css"
 
 const url = "http://127.0.0.1:5000/aluno/horas_voo";
 
-
 export class ConsultaHorasVoo extends React.Component {
+
     constructor(props) {
         super(props);
-        this.state = { nome: '' }
+        this.state = { aluno_id: '' , nome: ''}
         this.handleChange = this.handleChange.bind(this);
-        this.consultaHoras = this.consultaHoras.bind(this);
-    }
-
-
-    consultaHoras(event) {
-        event.preventDefault();
-        axios.get(url, {nome: 'teste'})
-            .then(response => console.log(response.data))
-            .catch(error => alert(error));
-            console.log(this.state)
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
-        this.setState({ [event.target.name]: event.target.value });
+        this.setState({ aluno_id: event.target.value });
+        console.log(event.target.name, event.target.value)
     }
 
-    render(){
+    handleSubmit(event) {
+        event.preventDefault();
+        axios.post(url, this.state)
+            .then(response => {console.log(response.data); alert("Horas: " + response.data.horas_voo);})
+            .catch(error => console.error(error));
+        console.log(this.state)
+    }
+
+    render() {
         return (
             <div>
                 <Navbar />
-                <div id="consulta">
-                    <h2 className="titulo">Consultar Horas de vôo</h2>
-                    <br />
-                    <div>
-                        <div className="grey-text label-form">Insira seu número de matrícula:</div>
-                        <input name="nome" value={this.state.nome} onChange={this.handleChange} type="text" className="form-control col-3"/>
+                <form className="fundo" onSubmit={this.handleSubmit}>
+                    <h2 className="titulo">Consultar Horas de Voo do Aluno</h2>
+                    <div id="consulta" className="container">
+                        <div htmlFor="aluno_id" className="grey-text">
+                            <div className="label-form">
+                                Matricula
+                            </div>
+                            <input type="text" name="aluno_id" value={this.state.aluno_id} onChange={this.handleChange} className="form-control col-3" />
+                        </div>
+                        <br />
+                        <div class="button">
+                        <a href="/consultaHorasVoo" target="_blank"><button type="submit" className="button-primary">Consultar</button></a>
+                        </div>  
                     </div>
-                    <br />
-                    <div className="button">
-                        <button color="unique" type="submit" className="button-primary" onClick={this.consultaHoras}>
-                            Consultar
-                        </button>
-                    </div>
-                </div>
+                </form>
             </div>
         );
     };

@@ -105,17 +105,19 @@ class AlunosResource(Resource):
 class HorasVooAlunoResource(Resource):
     # create parser
     parser = reqparse.RequestParser()
+    parser.add_argument('aluno_id', type=int, required=False)
     parser.add_argument('nome', type=str, required=False)
 
-    def get(self):
+    def post(self):
         args = self.parser.parse_args()
-
+        print(args)
         try:
-            if not args['nome']:
-                return {'message': "Request Error (GET): No 'nome' arg found"}
+            if not args['aluno_id']:
+                return {'message': "Request Error (GET): No 'user_id' arg found"}
 
             # caso nao tenha argumentos no request lista todas as aulas
-            horas_voo = AlunoModel.get_horas_voo(args['nome'])
+            horas_voo = AlunoModel.get_horas_voo(args['aluno_id'])
+            print(horas_voo)
             return {'horas_voo': horas_voo}
 
         except Exception as e:
