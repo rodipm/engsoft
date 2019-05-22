@@ -35,12 +35,12 @@ export class ConsultaHorasVoo extends React.Component {
                     <h2 className="titulo">Consultar Horas de vôo</h2>
                     <br />
                     <div>
-                        <div className="grey-text">Insira seu número de matrícula:</div>
+                        <div className="grey-text label-form">Insira seu número de matrícula:</div>
                         <input name="nome" value={this.state.nome} onChange={this.handleChange} type="text" className="form-control col-3"/>
                     </div>
                     <br />
                     <div className="button">
-                        <button color="unique" type="submit" className="botao" onClick={this.consultaHoras}>
+                        <button color="unique" type="submit" className="button-primary" onClick={this.consultaHoras}>
                             Consultar
                         </button>
                     </div>

@@ -1,7 +1,7 @@
 # Projeto Laboratorio de Engenharia de Software
 
 ## Clone Repo
-> git clone git@github.com:rodipm/engsoft.git
+`git clone git@github.com:rodipm/engsoft.git`
 
 ## Back-end
 1. `cd back`

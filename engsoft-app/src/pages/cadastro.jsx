@@ -69,17 +69,9 @@ export class Cadastro extends React.Component {
                             <input type="text" name="idade" value={this.state.idade} onChange={this.handleChange} className="form-control col-3" />
                         </div>
                         <br />
-<<<<<<< HEAD
-                        <div className="button">
-                            <button color="unique" type="submit" className="botao">
-                                Matricular
-                            </button>
-                        </div>
-=======
                         <div class="button">
                         <a href="/registroVoo" target="_blank"><button type="submit" className="button-primary" onclick="alert(); ">Matricular</button></a>
                         </div>  
->>>>>>> cb45d5abb4b6aa00d912502d2f002eed90800b21
                     </div>
                 </form>
             </div>
