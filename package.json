@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/rodipm/engsoft#readme",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "bootstrap": "^4.3.1"
   }
 }

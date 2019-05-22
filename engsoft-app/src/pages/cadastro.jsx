@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import { Navbar } from "../components/navbar";
 import "./cadastro.css"
 
 const url = "http://127.0.0.1:5000/aluno";
@@ -28,49 +29,54 @@ export class Cadastro extends React.Component {
 
     render() {
         return (
-            <form className="fundo" onSubmit={this.handleSubmit}>
-                <h2 className="titulo">Matricular Aluno</h2>
-                <div htmlFor="nome" className="grey-text">
-                    <div className="texto-nome">
-                        Nome
+            <div>
+                <Navbar />
+                <form className="fundo" onSubmit={this.handleSubmit}>
+                    <h2 className="titulo">Matricular Aluno</h2>
+                    <div id="formulario">
+                        <div htmlFor="nome" className="grey-text">
+                            <div className="texto-nome">
+                                Nome
+                            </div>
+                            <input type="text" name="nome" value={this.state.nome} onChange={this.handleChange} className="form-control col-3" />
+                        </div>
+                        <br />
+                        <div htmlFor="cpf" className="grey-text">
+                            <div className="texto-cpf">
+                                CPF
+                            </div>
+                            <input type="text" name="CPF" value={this.state.CPF} onChange={this.handleChange} className="form-control col-3" />
+                        </div>
+                        <br />
+                        <div htmlFor="rg" name="RG" value={this.state.RG} onChange={this.handleChange} className="grey-text">
+                            <div className="texto-rg">
+                                RG
+                            </div>
+                            <input type="text" className="form-control col-3" />
+                        </div>
+                        <br />
+                        <div htmlFor="endereco" className="grey-text">
+                            <div className="texto-endereco">
+                                Endereço
+                            </div>
+                            <input type="text" name="endereco" value={this.state.endereco} onChange={this.handleChange} className="form-control col-3" />
+                        </div>
+                        <br />
+                        <div htmlFor="idade" className="grey-text">
+                            <div className="texto-idade">
+                                Idade
+                            </div>
+                            <input type="text" name="idade" value={this.state.idade} onChange={this.handleChange} className="form-control col-3" />
+                        </div>
+                        <br />
+                        <div class="button">
+                            <button color="unique" type="submit" class="botao">
+                                Matricular
+                            </button>
+                        </div>
                     </div>
-                    <input type="text" name="nome" value={this.state.nome} onChange={this.handleChange} className="form-control" />
-                </div>
-                <br />
-                <div htmlFor="cpf" className="grey-text">
-                    <div className="texto-cpf">
-                        CPF
-                    </div>
-                    <input type="text" name="CPF" value={this.state.CPF} onChange={this.handleChange} className="form-control" />
-                </div>
-                <br />
-                <div htmlFor="rg" className="grey-text">
-                    <div className="texto-rg">
-                        RG
-                    </div>
-                    <input type="text" name="RG" value={this.state.RG} onChange={this.handleChange} className="form-control" />
-                </div>
-                <br />
-                <div htmlFor="endereco" className="grey-text">
-                    <div className="texto-endereco">
-                        Endereço
-                    </div>
-                    <input type="text" name="endereco" value={this.state.endereco} onChange={this.handleChange} className="form-control" />
-                </div>
-                <br />
-                <div htmlFor="idade" className="grey-text">
-                    <div className="texto-idade">
-                        Idade
-                    </div>
-                    <input type="text" name="idade" value={this.state.idade} onChange={this.handleChange} className="form-control" />
-                </div>
-                <br />
-                <div class="button">
-                    <button color="unique" type="submit" className="botao">
-                        Matricular
-                    </button>
-                </div>
-            </form>
+                </form>
+            </div>
         );
     };
 };
