@@ -6,10 +6,9 @@ export class RegistroVoo extends React.Component{
     render (){
         return (
             <div>
+                <Navbar />
                 <form className="fundo">
-                
                     <h2 className="titulo">Registrar Voo</h2>
-                
                     <div htmlFor="nMatricula" className="grey-text">
                         <div className="texto-nMatricula">
                             Número de Matricula

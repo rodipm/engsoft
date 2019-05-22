@@ -4,16 +4,21 @@ from escola.models.aluno_model import AlunoModel
 from escola.schemas.aluno_schema import AlunoSchema
 
 # defines aluno backend resources
+
+
 class AlunoResource(Resource):
     # create parser
     parser = reqparse.RequestParser()
     parser.add_argument('nome', type=str, required=False)
     parser.add_argument('CPF', type=str, required=False)
+    parser.add_argument('RG', type=str, required=False)
+    parser.add_argument('idade', type=int, required=False)
+    parser.add_argument('endereco', type=str, required=False)
 
     def get(self):
         # parse args
         args = self.parser.parse_args()
-        json = '' 
+        json = ''
 
         # tenta obter uma entrada no banco de dados com o CPF do aluno
         try:
@@ -21,7 +26,7 @@ class AlunoResource(Resource):
                 return {'message', 'Request Error (GET): No args found'}
 
             # busca por nome ou CPF (baseado nos argumentos passados)
-            
+
             if args['CPF']:
                 aluno = AlunoModel.find_by_CPF(args['CPF'])
             elif args['nome']:
@@ -30,33 +35,34 @@ class AlunoResource(Resource):
             # aluno encontrado
             if aluno:
                 schema = AlunoSchema()
-                json = schema.dump(aluno).data # transforma em JSON baseado no Schema adotado
+                # transforma em JSON baseado no Schema adotado
+                json = schema.dump(aluno).data
             # aluno nao encontrado
             else:
-                return {'message':f"Aluno {args['nome']} not found "}, 404
+                return {'message': f"Aluno {args['nome']} not found "}, 404
 
         except Exception as e:
             print(e)
-            return {'message':f"Request Error (GET)"}, 500
+            return {'message': f"Request Error (GET)"}, 500
 
         return json, 200
-    
+
     def post(self):
         try:
             # parse args
             args = self.parser.parse_args()
 
             # no args
-            if not (args['nome'] and args['CPF']):
-                return {'message':"Request Error (POST): No args found"}, 400
-                print("in if")
-            
+            if not (args['nome'] and args['CPF'] and args['RG'] and args['idade'] and args['endereco']):
+                return {'message': "Request Error (POST): No args found"}, 400
+
             # verifica se o aluno ja existe
             if AlunoModel.find_by_CPF(args['CPF']):
                 return {'message': f"Aluno com CPF: {args['CPF']} já está cadastrado no sistema."}, 400
             else:
                 # create new aluno
-                aluno = AlunoModel(nome=args['nome'], CPF=args['CPF'], horas_voo=0)
+                aluno = AlunoModel(
+                    nome=args['nome'], CPF=args['CPF'], idade=args['idade'], RG=args['RG'], endereco=args['endereco'])
                 # add aluno
                 aluno.add()
 
@@ -71,27 +77,31 @@ class AlunoResource(Resource):
 
         except Exception as e:
             print(e)
-            return {"message":"Database error"}, 500
+            return {"message": "Database error"}, 501
 
 # Definicao para obter todos os alunos
+
+
 class AlunosResource(Resource):
     def get(self):
         json = ''
         try:
             # lista todos os alunos
             alunos = AlunoModel.list()
-            
+
             # dump alunos to JSON
             schema = AlunoSchema(many=True)
             json = schema.dump(alunos).data
-            
+
         except Exception as e:
             print(e)
-            return {"message":"Something went wrong while listing alunos"}, 500
-        
+            return {"message": "Something went wrong while listing alunos"}, 500
+
         return json, 200
-        
+
 # Definicao para obter o total de horas de voo
+
+
 class HorasVooAlunoResource(Resource):
     # create parser
     parser = reqparse.RequestParser()
@@ -110,5 +120,5 @@ class HorasVooAlunoResource(Resource):
 
         except Exception as e:
             print(e)
-            return {"message":"Something went wrong while getting horas_voo"}, 500
+            return {"message": "Something went wrong while getting horas_voo"}, 500
         return json, 201

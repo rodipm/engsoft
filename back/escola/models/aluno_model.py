@@ -2,16 +2,25 @@ from dao import db, Base
 from escola.models.aula_model import AulaModel
 
 # define a tabela de 'alunos'
+
+
 class AlunoModel(Base):
     __tablename__ = 'alunos'
-    id = db.Column(db.Integer, primary_key=True) # chave primaria unica e auto-incrementada
+    # chave primaria unica e auto-incrementada
+    id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(200), unique=False, nullable=False)
-    CPF = db.Column(db.String(14), unique=True, nullable=False) # 123.456.789.00 len = 14
+    # 123.456.789.00 len = 14
+    CPF = db.Column(db.String(14), unique=True, nullable=False)
+    RG = db.Column(db.String(12), unique=False, nullable=False)  # 12.345.678-9
+    endereco = db.Column(db.String(50), unique=False, nullable=False)
+    idade = db.Column(db.Integer)
 
-    def __init__(self, nome, horas_voo, CPF):
+    def __init__(self, nome, CPF, RG, endereco, idade):
         self.nome = nome
-        self.horas_voo = horas_voo
         self.CPF = CPF
+        self.RG = RG
+        self.endereco = endereco
+        self.idade = idade
 
     # adiciona uma linha na respectiva tabela
     def add(self):
