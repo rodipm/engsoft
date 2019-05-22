@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import App from './App';
 import {RegistroVoo} from './pages/registroVoo';
+import {RegistroVooConfirma} from './pages/registroVoo_confirmaAluno';
+import {RegistroVooDados} from './pages/registroVoo_insereDados';
 import {Cadastro} from './pages/cadastro';
 import {Homepage} from './pages/homepage';
 import {ConsultaHorasVoo} from './pages/consultaHorasVoo';
@@ -16,6 +18,8 @@ const routing = (
       <Route exact path="/" component={Homepage} />
       <Route path="/cadastro" component={Cadastro} />
       <Route path="/registroVoo" component={RegistroVoo} />
+      <Route path="/registroVooConfirma" component={RegistroVooConfirma} />
+      <Route path="/registroVooDados" component={RegistroVooDados} />
       <Route path="/consultaHorasVoo" component={ConsultaHorasVoo} />
     </div>
   </Router>

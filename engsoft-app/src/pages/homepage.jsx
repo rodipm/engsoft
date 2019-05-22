@@ -13,7 +13,7 @@ export class Homepage extends React.Component {
                         <div className="card-homepage col-6">
                             <div className="vertical-center">
                                 <p className="texto-homepage">Acabou de fazer um vôo? Registre-o agora:</p>
-                                <a href="/registroVoo" target="_blank"><button type="button" className="button-primary" onclick="alert(); " >Registro de Vôo</button></a>
+                                <a href="/registroVoo" ><button type="button" className="button-primary" onclick="alert(); " >Registro de Vôo</button></a>
                             </div>
                         </div>
                         <div className="card-homepage col-6">
