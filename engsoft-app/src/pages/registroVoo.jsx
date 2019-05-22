@@ -1,68 +1,50 @@
 import * as React from 'react';
 import './registroVoo.css';
+import axios from 'axios';
 import { Navbar } from '../components/navbar'
 
+const url = "http://localhost:5000/aluno"
+
 export class RegistroVoo extends React.Component{
+    /*constructor(props) {
+        super(props);
+        this.state = {aluno_id: ''}
+        this.hasName = false;
+        this.name  = '';
+    }
+
+    handleChange(event) {
+        this.setState({ [event.target.name]: event.target.value })
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        axios.post(url, this.state)
+            .then((response) => {
+                this.hasName = true;
+                this.name = response.data.nome;
+            });
+    }*/
     render (){
         return (
             <div>
                 <Navbar />
-                <form className="fundo">
+                <form className="fundo" /*onSubmit={this.handleSubmit}*/>
                     <h2 className="titulo">Registrar Voo</h2>
                     <div htmlFor="nMatricula" className="grey-text">
                         <div className="texto-nMatricula">
                             Número de Matricula
                         </div>
 
-                        <input type="text" className="form-control"/>
+                        <input type="text" /*name="user_id" onChange={this.handleChange}*/ className="form-control col-3"/>
 
+                        
                         <div class="button">
-                            <button color="unique" type="submit" class="botao">
-                                Buscar
-                            </button>
+                            <a href="/registroVooConfirma">
+                                <button type="button" className="button-primary" onclick="alert(); ">Buscar</button>
+                            </a>
                         </div>
-                    </div>                    
-
-                    <div>
-                        <p>Nome:</p>
-                        <p></p>
-                    </div>
-                    
-                    <br />
-
-                    <div htmlFor="horaVoo" className="grey-text">
-                        <div className="texto-horaVoo">
-                            Hora do Voo
-                        </div>
-                        <input type="text" className="form-control"/>
-                    </div>
-
-                    <br />
-
-                    <div htmlFor="nHorasDoVoo" className="grey-text">
-                        <div className="texto-nHorasDoVoo">
-                            Número de Horas do Voo
-                        </div>
-                        <input type="text" className="form-control"/>
-                    </div>
-
-                    <br />
-                    
-                    <div htmlFor="parecer" className="grey-text">
-                        <div className="texto-parecer">
-                            Parecer
-                        </div>
-                        <input type="text" className="form-control"/>
-                    </div>
-                    
-                    <br />
-                    
-                    <div class="button">
-                        <button color="unique" type="submit" class="botao">
-                            Matricular
-                        </button>
-                    </div>
-
+                    </div>      
                 </form>
             </div>
         )
