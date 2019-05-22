@@ -45,7 +45,7 @@ export class RegistroVooDados extends React.Component{
                     <br />
                     
                     <div class="button">
-                        <button color="unique" type="submit" class="botao">
+                        <button color="unique" type="submit" class="button-primary">
                             Matricular
                         </button>
                     </div>

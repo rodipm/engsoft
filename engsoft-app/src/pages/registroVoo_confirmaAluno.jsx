@@ -10,12 +10,11 @@ export class RegistroVooConfirma extends React.Component{
                 <form className="fundo">
                     <h2 className="titulo">Registrar Voo</h2>
                     
-                    <div>
-                        <p>Nome:</p>
-                        <p></p>
-                    </div>
+                    
 
-                    <div className="button row">
+                    <div className="button_row">
+                        <div className="grey-text">Nome:</div>
+                        <br/>
                         <a href="/registroVooDados">
                             <button type="button" className="button-primary" onclick="alert(); " >Confirmar</button>
                         </a>
