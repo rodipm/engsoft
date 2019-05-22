@@ -13,13 +13,13 @@ export class Homepage extends React.Component {
                         <div className="card-homepage col-6">
                             <div className="vertical-center">
                                 <p className="texto-homepage">Acabou de fazer um vôo? Registre-o agora:</p>
-                                <button type="button" className="button-primary" onclick="alert(); " >Registro de Vôo</button>
+                                <a href="/registroVoo" target="_blank"><button type="button" className="button-primary" onclick="alert(); " >Registro de Vôo</button></a>
                             </div>
                         </div>
                         <div className="card-homepage col-6">
                             <div className="vertical-center">
                                 <p className="texto-homepage">Veja quantas horas de vôo você <br/> já completou:</p>
-                                <button type="button" className="button-primary" onclick="window.location.href = '/';">Consulta de Horas</button>
+                                <a href="/consultaHorasVoo"><button type="button" className="button-primary" onclick="window.location.href = '/';">Consulta de Horas</button></a>
                             </div>
                         </div>
                     </div>
