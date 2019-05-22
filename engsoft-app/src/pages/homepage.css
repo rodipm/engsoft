@@ -60,7 +60,9 @@
     margin-top: 2em;
 }
 
-
+.button-primary:hover {
+    padding: 0.75rem 2rem;
+}
 
 .vertical-center {
     margin: 0;
