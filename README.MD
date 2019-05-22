@@ -17,5 +17,5 @@
 
 ## Front-end
 1. `cd engsoft-app`
-2. `npm install`
-3. `npm start` (inicia a aplicação React em uma porta local)
+2. `npm install` instala as dependências do node_modules (junto com o Bootstrap e o Router)
+3. `npm start` inicia a aplicação React em uma porta local
