@@ -69,8 +69,8 @@ export class Cadastro extends React.Component {
                             <input type="text" name="idade" value={this.state.idade} onChange={this.handleChange} className="form-control col-3" />
                         </div>
                         <br />
-                        <div class="button">
-                            <button color="unique" type="submit" class="botao">
+                        <div className="button">
+                            <button color="unique" type="submit" className="botao">
                                 Matricular
                             </button>
                         </div>

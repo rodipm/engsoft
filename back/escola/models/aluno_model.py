@@ -44,9 +44,9 @@ class AlunoModel(Base):
 
     # Retorna horas de voo do aluno
     @classmethod
-    def get_horas_voo(cls, aluno_id):
+    def get_horas_voo(cls, nome):
         total = 0
-        for aula in AulaModel.query.filter_by(aluno_id=aluno_id).all():
+        for aula in AulaModel.query.filter_by(nome=nome).all():
             total = total + aula.duracao
         return total
 
