@@ -7,6 +7,7 @@ import App from './App';
 import {RegistroVoo} from './pages/registroVoo';
 import {Cadastro} from './pages/cadastro';
 import {Homepage} from './pages/homepage';
+import {ConsultaHorasVoo} from './pages/consultaHorasVoo';
 import * as serviceWorker from './serviceWorker';
 
 const routing = (
@@ -15,6 +16,7 @@ const routing = (
       <Route exact path="/" component={Homepage} />
       <Route path="/cadastro" component={Cadastro} />
       <Route path="/registroVoo" component={RegistroVoo} />
+      <Route path="/consultaHorasVoo" component={ConsultaHorasVoo} />
     </div>
   </Router>
   
