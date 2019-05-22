@@ -12,8 +12,8 @@ class AlunoResource(Resource):
     parser.add_argument('nome', type=str, required=False)
     parser.add_argument('CPF', type=str, required=False)
     parser.add_argument('RG', type=str, required=False)
-    parser.add_argument('idade', type=str, required=False)
-    parser.add_argument('endereco', type=int, required=False)
+    parser.add_argument('idade', type=int, required=False)
+    parser.add_argument('endereco', type=str, required=False)
 
     def get(self):
         # parse args

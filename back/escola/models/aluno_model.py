@@ -11,7 +11,7 @@ class AlunoModel(Base):
     nome = db.Column(db.String(200), unique=False, nullable=False)
     # 123.456.789.00 len = 14
     CPF = db.Column(db.String(14), unique=True, nullable=False)
-    RG = db.Column(db.String(12), unique=True, nullable=False)  # 12.345.678-9
+    RG = db.Column(db.String(12), unique=False, nullable=False)  # 12.345.678-9
     endereco = db.Column(db.String(50), unique=False, nullable=False)
     idade = db.Column(db.Integer)
 
