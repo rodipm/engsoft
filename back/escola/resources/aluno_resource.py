@@ -54,7 +54,7 @@ class AlunoResource(Resource):
 
             # no args
             if not (args['nome'] and args['CPF'] and args['RG'] and args['idade'] and args['endereco']):
-                return {'message': "Request Error (POST): No args found"}, 400
+                return {'message': "Request Error (POST): No args found"}
 
             # verifica se o aluno ja existe
             if AlunoModel.find_by_CPF(args['CPF']):
@@ -73,11 +73,11 @@ class AlunoResource(Resource):
                 schema = AlunoSchema()
                 json = schema.dump(aluno).data
 
-                return json, 201
+            return json, 201
 
         except Exception as e:
             print(e)
-            return {"message": "Database error"}, 501
+            return {"message": "Database error"}, 500
 
 # Definicao para obter todos os alunos
 
