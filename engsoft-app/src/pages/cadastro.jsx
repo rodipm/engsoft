@@ -48,11 +48,11 @@ export class Cadastro extends React.Component {
                             <input type="text" name="CPF" value={this.state.CPF} onChange={this.handleChange} className="form-control col-3" />
                         </div>
                         <br />
-                        <div htmlFor="rg" name="RG" value={this.state.RG} onChange={this.handleChange} className="grey-text">
+                        <div htmlFor="rg" className="grey-text">
                             <div className="texto-rg">
                                 RG
                             </div>
-                            <input type="text" className="form-control col-3" />
+                            <input type="text" name="RG" value={this.state.RG} onChange={this.handleChange} className="form-control col-3" />
                         </div>
                         <br />
                         <div htmlFor="endereco" className="grey-text">
