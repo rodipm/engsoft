@@ -3,6 +3,7 @@
 
 #welcome {
     margin-top: 2em;
+    font-family: 'Montserrat Bold', sans-serif;
 }
 
 .cards {
@@ -14,7 +15,8 @@
 }
 
 .texto-homepage {
-    font-size: 2em;
+    font-size: 1.8rem;
+    font-family: 'Montserrat Normal', sans-serif;
 }
 
 .card-homepage {
@@ -42,13 +44,14 @@
 
 .button-primary {
     display: flex;
+    font-family: 'Montserrat Bold', sans-serif;
     font-weight: 600;
     color: #fff;
     text-align: center;
     vertical-align: middle;
     background-color: #12a2da;
     border: 3px solid #12a2da;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 2rem;
     font-size: 1rem;
     line-height: 1.5;
     border-radius: 50px;
@@ -61,7 +64,7 @@
 }
 
 .button-primary:hover {
-    padding: 0.75rem 2rem;
+    padding: 0.75rem 2.5rem;
 }
 
 .vertical-center {

@@ -1,12 +1,7 @@
-.azul{
-    color: blue;
-    background-color: aquamarine;
-}
-
 .titulo{
     text-align: center;
     margin-top: 2%;
-    font-family: sans-serif;
+    font-family: 'Montserrat Normal', sans-serif;
 }
 
 .grey-text {
@@ -15,7 +10,7 @@
 }
 
 .texto-nMatricula {
-    padding-right: 3.5%;
+	padding-right: 3.5%;
 }
 
 .texto-horaVoo {
