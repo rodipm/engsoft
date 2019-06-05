@@ -1,79 +1,38 @@
-import React, { Component } from "react";
-import axios from 'axios';
+import React from "react";
 import { Navbar } from "../components/navbar";
-import "./cadastro.css"
+import { CadastroFormulario } from "./cadastroFornulario";
+import { CadastroConfirmacao } from "./cadastroConfirmacao";
 
-const url = "http://127.0.0.1:5000/aluno";
+import "./cadastro.css"
 
 export class Cadastro extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { nome: '', CPF: '', RG: '', endereco: '', idade: '' }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = { nome: '' , cadastrado: false }
+        this.handleSubmitPostCallback = this.handleSubmitPostCallback.bind(this);
+        this.updateNome = this.updateNome.bind(this);
     }
 
-    handleChange(event) {
-        this.setState({ [event.target.name]: event.target.value });
-        console.log(event.target.name, event.target.value)
+    handleSubmitPostCallback() {
+            this.setState({ cadastrado: true });
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
-        axios.post(url, this.state)
-            .then(response => console.log(response.data))
-            .catch(error => console.error(error));
-        console.log(this.state)
+    updateNome(novoNome) {
+        this.setState({nome: novoNome})
     }
 
     render() {
+        let pagina;
+        if (this.state.cadastrado)
+            pagina = <CadastroConfirmacao nome={this.state.nome} />
+        else
+            pagina = <CadastroFormulario handleSubmitPostCallback={this.handleSubmitPostCallback} updateNome={this.updateNome} />
+
         return (
             <div>
                 <Navbar />
-                <form className="fundo" onSubmit={this.handleSubmit}>
-                    <h2 className="titulo">Matricular Aluno</h2>
-                    <div id="formulario" className="container">
-                        <div htmlFor="nome" className="grey-text">
-                            <div className="label-form">
-                                Nome
-                            </div>
-                            <input type="text" name="nome" value={this.state.nome} onChange={this.handleChange} className="form-control col-3" />
-                        </div>
-                        <br />
-                        <div htmlFor="cpf" className="grey-text">
-                            <div className="label-form">
-                                CPF
-                            </div>
-                            <input type="text" name="CPF" value={this.state.CPF} onChange={this.handleChange} className="form-control col-3" />
-                        </div>
-                        <br />
-                        <div htmlFor="rg" className="grey-text">
-                            <div className="label-form">
-                                RG
-                            </div>
-                            <input type="text" name="RG" value={this.state.RG} onChange={this.handleChange} className="form-control col-3" />
-                        </div>
-                        <br />
-                        <div htmlFor="endereco" className="grey-text">
-                            <div className="label-form">
-                                Endereço
-                            </div>
-                            <input type="text" name="endereco" value={this.state.endereco} onChange={this.handleChange} className="form-control col-3" />
-                        </div>
-                        <br />
-                        <div htmlFor="idade" className="grey-text">
-                            <div className="label-form">
-                                Idade
-                            </div>
-                            <input type="text" name="idade" value={this.state.idade} onChange={this.handleChange} className="form-control col-3" />
-                        </div>
-                        <br />
-                        <div class="button">
-                        <a href="/registroVoo" target="_blank"><button type="submit" className="button-primary" onclick="alert(); ">Matricular</button></a>
-                        </div>  
-                    </div>
-                </form>
+                {pagina}
             </div>
         );
     };
