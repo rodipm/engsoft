@@ -22,7 +22,10 @@ export class ConsultaHorasVoo extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         axios.post(url, this.state)
-            .then(response => {console.log(response.data); alert("Horas: " + response.data.horas_voo);})
+            .then(response => { document.getElementById("resultado").style.display = "";
+                                document.getElementById("resultado").innerHTML = "Numero toal de horas : " + response.data.horas_voo; 
+                                /*console.log(response.data); 
+                                alert("Horas: " + response.data.horas_voo);*/ })
             .catch(error => console.error(error));
         console.log(this.state)
     }
@@ -46,6 +49,8 @@ export class ConsultaHorasVoo extends React.Component {
                         </div>  
                     </div>
                 </form>
+                <br />
+                <h2 id="resultado" style={{display:'none'}} >Something went Wrong</h2>
             </div>
         );
     };
