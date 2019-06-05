@@ -8,6 +8,8 @@ import {RegistroVoo} from './pages/registroVoo';
 import {RegistroVooConfirma} from './pages/registroVoo_confirmaAluno';
 import {RegistroVooDados} from './pages/registroVoo_insereDados';
 import {Cadastro} from './pages/cadastro';
+import {CadastroFormulario} from './pages/cadastroFornulario';
+import {CadastroConfirmacao} from './pages/cadastroConfirmacao';
 import {Homepage} from './pages/homepage';
 import {ConsultaHorasVoo} from './pages/consultaHorasVoo';
 import * as serviceWorker from './serviceWorker';
@@ -17,6 +19,8 @@ const routing = (
     <div>
       <Route exact path="/" component={Homepage} />
       <Route path="/cadastro" component={Cadastro} />
+      <Route path="/cadastroFormulario" component={CadastroFormularios} />
+      <Route path="/cadastroConfirmacao" component={CadastroConfirmacao} />
       <Route path="/registroVoo" component={RegistroVoo} />
       <Route path="/registroVooConfirma" component={RegistroVooConfirma} />
       <Route path="/registroVooDados" component={RegistroVooDados} />
