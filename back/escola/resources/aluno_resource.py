@@ -10,6 +10,7 @@ class AlunoResource(Resource):
     # create parser
     parser = reqparse.RequestParser()
     parser.add_argument('nome', type=str, required=False)
+    parser.add_argument('senha', type=str, required=False)
     parser.add_argument('id', type=int, required=False)
     parser.add_argument('CPF', type=str, required=False)
     parser.add_argument('RG', type=str, required=False)
@@ -49,13 +50,43 @@ class AlunoResource(Resource):
 
         return json, 200
 
+    def login(self):
+
+        # parse args
+        args = self.parser.parse_args()
+        json = ''
+
+        # tenta obter uma entrada no banco de dados com o CPF do aluno
+        try:
+            if not (args['id'] and args['senha']):
+                return {'message', 'Request Error (GET): No args found'}, 400
+
+            # busca por nome ou CPF (baseado nos argumentos passados)
+            else:
+                aluno = AlunoModel.find_by_id_and_senha(args['id'], args['senha'])
+
+            # aluno encontrado
+            if aluno:
+                schema = AlunoSchema()
+                # transforma em JSON baseado no Schema adotado
+                json = schema.dump(aluno).data
+            # aluno nao encontrado
+            else:
+                return {'message': f"Aluno {args['nome']} not found "}, 404
+
+        except Exception as e:
+            print(e)
+            return {'message': f"Request Error (GET)"}, 500
+
+        return json, 200
+
     def post(self):
         try:
             # parse args
             args = self.parser.parse_args()
 
             # no args
-            if not (args['nome'] and args['CPF'] and args['RG'] and args['idade'] and args['endereco']):
+            if not (args['nome'] and args['senha'] and args['CPF'] and args['RG'] and args['idade'] and args['endereco']):
                 return {'message': "Request Error (POST): No args found"}, 400
 
             # verifica se o aluno ja existe
@@ -64,7 +95,7 @@ class AlunoResource(Resource):
             else:
                 # create new aluno
                 aluno = AlunoModel(
-                    nome=args['nome'], CPF=args['CPF'], idade=args['idade'], RG=args['RG'], endereco=args['endereco'])
+                    nome=args['nome'], senha=args['senha'], CPF=args['CPF'], idade=args['idade'], RG=args['RG'], endereco=args['endereco'])
                 # add aluno
                 aluno.add()
 

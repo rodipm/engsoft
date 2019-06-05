@@ -9,18 +9,21 @@ class AlunoModel(Base):
     # chave primaria unica e auto-incrementada
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(200), unique=False, nullable=False)
+    senha = db.Column(db.String(24), unique=False, nullable=False)
     # 123.456.789.00 len = 14
     CPF = db.Column(db.String(14), unique=True, nullable=False)
     RG = db.Column(db.String(12), unique=False, nullable=False)  # 12.345.678-9
     endereco = db.Column(db.String(50), unique=False, nullable=False)
     idade = db.Column(db.Integer)
+    
 
-    def __init__(self, nome, CPF, RG, endereco, idade):
+    def __init__(self, nome, senha, CPF, RG, endereco, idade):
         self.nome = nome
         self.CPF = CPF
         self.RG = RG
         self.endereco = endereco
         self.idade = idade
+        self.senha = senha
 
     # adiciona uma linha na respectiva tabela
     def add(self):
@@ -31,6 +34,11 @@ class AlunoModel(Base):
     @classmethod
     def find_by_id(cls, id):
         return cls.query.filter_by(id=id).first()
+
+    # encontra alunos no db pelo id e senha
+    @classmethod
+    def find_by_id_and_senha(cls, id, senha):
+        return cls.query.filter_by(id=id,senha=senha).first()
 
     # encontra alunos no db pelo nome
     @classmethod
