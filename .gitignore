@@ -2,3 +2,4 @@ venv/
 back/escola/resources/__pycache__
 back/escola/models/__pycache__/
 engsoft-app/node_modules
+tmp/node_modules
