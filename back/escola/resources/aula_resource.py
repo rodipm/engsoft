@@ -15,20 +15,20 @@ class AulaResource(Resource):
     def get(self):
         # parse args
         args = self.parser.parse_args()
-        json = '' 
+        json = ''
 
-        # tenta obter uma entrada no banco de dados com o CPF do aula
+        # tenta obter uma entrada no banco de dados com o id do aluno
         try:
             if not args:
                 return {'message', 'Request Error (GET): No args found'}
 
             aula = AulaModel.find_by_data_aluno_id(aluno_id=args['aluno_id'], data=args['data'])
 
-            # aula encontrado
+            # aula encontrada
             if aula:
                 schema = AulaSchema()
                 json = schema.dump(aula).data # transforma em JSON baseado no Schema adotado
-            # aula nao encontrado
+            # aula nao encontrada
             else:
                 return {'message': f"Não foram encontradas aulas marcadas com essas caracteristicas."}, 404
 
@@ -37,7 +37,7 @@ class AulaResource(Resource):
             return {'message': f"Request Error (GET)"}, 500
 
         return json, 200
-    
+
     def post(self):
         try:
             # parse args
@@ -46,7 +46,7 @@ class AulaResource(Resource):
             # no args
             if not args:
                 return {'message': "Request Error (POST): No args found"}, 400
-            
+
             # verifica se o aula ja existe
             if AulaModel.find_by_data_aluno_id(data=args['data'], aluno_id=args['aluno_id']):
                 return {'message': f"Aula para {args['aluno_id']} em {args['data']} já está cadastrado no sistema."}, 400
@@ -74,7 +74,7 @@ class AulaResource(Resource):
 class AulasResource(Resource):
     def get(self):
         json = ''
-        aulas = [] 
+        aulas = []
         try:
             # caso nao tenha argumentos no request lista todas as aulas
             aulas = AulaModel.list()
@@ -84,5 +84,3 @@ class AulasResource(Resource):
             print(e)
             return {"message":"Something went wrong while listing aulas"}, 500
         return json, 201
-
-        

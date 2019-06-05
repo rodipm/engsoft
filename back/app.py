@@ -37,7 +37,7 @@ def create_tables():
     db.create_all()
 
 
-# endpoints declarations
+# endpoint declarations
 api.add_resource(AlunoResource, '/aluno')
 api.add_resource(AlunosResource, '/alunos')
 api.add_resource(HorasVooAlunoResource, '/aluno/horas_voo')

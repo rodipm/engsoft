@@ -7,7 +7,7 @@ class AulaModel(Base):
     data = db.Column(db.DateTime, nullable=False) # AAAA-MM-DDTHH:MM:SS
     aluno_id = db.Column(db.Integer, db.ForeignKey('alunos.id'), nullable=False)
     aluno = db.relationship("AlunoModel", backref="aulas")
-    duracao = db.Column(db.Integer, nullable=True)
+    duracao = db.Column(db.Integer, nullable=False)
 
 
     def __init__(self, aluno_id, data, duracao):

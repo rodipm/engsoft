@@ -123,4 +123,3 @@ class HorasVooAlunoResource(Resource):
         except Exception as e:
             print(e)
             return {"message": "Something went wrong while getting horas_voo"}, 500
-        return json, 201
