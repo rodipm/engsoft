@@ -19,7 +19,7 @@ class AlunoResource(Resource):
         # parse args
         args = self.parser.parse_args()
         json = ''
-
+        aluno = ''
         # tenta obter uma entrada no banco de dados com o CPF do aluno
         try:
             if not args:
