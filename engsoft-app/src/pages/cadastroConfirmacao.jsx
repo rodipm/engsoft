@@ -9,7 +9,7 @@ export class CadastroConfirmacao extends React.Component {
                 <div className="container row cards">
                     <div className="card-cadastro-sucesso col-6">
                         <div className="vertical-center">
-                            <p className="texto-cadastro-sucesso">Usuário {this.props.nome} cadastrado com sucesso!</p>
+                            <p className="texto-cadastro-sucesso">Usuario {this.props.nome} cadastrado com sucesso!</p>
                             <a href="/" ><button type="button" className="button-primary">Home</button></a>
                         </div>
                     </div>
