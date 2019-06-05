@@ -24,6 +24,7 @@ export class RegistroVoo extends React.Component{
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmitConfirma = this.handleSubmitConfirma.bind(this);
         this.handleSubmitDados = this.handleSubmitDados.bind(this);
+        this.handleChangeDateTime = this.handleChangeDateTime.bind(this);
     }
 
     handleChange(event) {
@@ -43,12 +44,20 @@ export class RegistroVoo extends React.Component{
         this.setState( {situacao: event.target.value} )
     }
 
+    handleChangeDateTime(data) {
+        let now = data._d;
+        now = now.toISOString();
+        let nowStripped = now.substring(0, now.length - 5);
+        this.setState({data: nowStripped});
+    }
+
     handleSubmitDados(event) {
         event.preventDefault();
         axios.post(url_aula, {
             aluno_id: this.state.aluno_id,
             duracao: this.state.duracao,
-            data: this.state.data
+            data: this.state.data,
+            parecer: this.state.parecer
         }).then((response) => {
                 this.setState({ situacao: 'busca' })
             }).catch(err => console.error(err));
@@ -62,7 +71,7 @@ export class RegistroVoo extends React.Component{
         else if (this.state.situacao === 'confirma')
             page = <RegistroVooConfirma handleSubmitConfirma={this.handleSubmitConfirma} nome={this.state.nome} />
         else if (this.state.situacao === 'dados')
-            page = <RegistroVooDados handleSubmitDados={this.handleSubmitDados} handleChange={this.handleChange} />
+            page = <RegistroVooDados handleSubmitDados={this.handleSubmitDados} handleChange={this.handleChange} handleChangeDateTime={this.handleChangeDateTime} />
         
 
         return (

@@ -18,8 +18,18 @@
 }
 
 .texto-nHorasDoVoo {
-    padding-right: 0%;
+	padding-right: 0%;
+	text-align: center;
+	margin-right: auto;
+    margin-left: auto;
 }
+
+.centered-calendar {
+	text-align: center;
+	margin-right: auto;
+    margin-left: auto;
+}
+
 
 .texto-parecer {
     padding-right: 18%;

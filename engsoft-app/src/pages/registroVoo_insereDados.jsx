@@ -1,5 +1,7 @@
 import * as React from 'react';
 import './registroVoo.css';
+import * as Datetime from 'react-datetime';
+import "../../node_modules/react-datetime/css/react-datetime.css";
 
 export class RegistroVooDados extends React.Component{
     render (){
@@ -7,11 +9,11 @@ export class RegistroVooDados extends React.Component{
             <div>
                 <form className="fundo">
 
-                    <div htmlFor="horaVoo" className="grey-text">
-                        <div className="texto-horaVoo">
-                            Hora do Voo
+                    <div htmlFor="Data" className="grey-text">
+                        <div className="texto-nHorasDoVoo col-3">
+                            Dia e horário do voo
+                            <Datetime onChange={this.props.handleChangeDateTime} className="centered-calendar"/>
                         </div>
-                        <input type="text" name="data" onChange={this.props.handleChange} className="form-control col-3"/>
                     </div>
 
                     <br />
@@ -20,7 +22,7 @@ export class RegistroVooDados extends React.Component{
                         <div className="texto-nHorasDoVoo">
                             Número de Horas do Voo
                         </div>
-                        <input type="text" name="duracao" onChange={this.props.handleChange} className="form-control col-3"/>
+                        <input type="text" name="duracao" onChange={this.props.handleChange} className="col-3"/>
                     </div>
 
                     <br />
