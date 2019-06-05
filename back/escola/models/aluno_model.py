@@ -27,6 +27,11 @@ class AlunoModel(Base):
         db.session.add(self)
         db.session.commit()
 
+     # encontra alunos no db pelo id
+    @classmethod
+    def find_by_id(cls, id):
+        return cls.query.filter_by(id=id).first()
+
     # encontra alunos no db pelo nome
     @classmethod
     def find_by_nome(cls, nome):
