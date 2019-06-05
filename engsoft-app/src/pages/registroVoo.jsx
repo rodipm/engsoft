@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './registroVoo.css';
-/*import axios from 'axios';*/
+import axios from 'axios';
 import { Navbar } from '../components/navbar'
 import { RegistroVooBusca } from './registroVoo_busca'
 import { RegistroVooConfirma } from './registroVoo_confirmaAluno'
