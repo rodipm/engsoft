@@ -11,7 +11,7 @@ class AulaResource(Resource):
     parser.add_argument('data', type=lambda x: datetime.strptime(x,'%Y-%m-%dT%H:%M:%S'), required=False)
     parser.add_argument('aluno_id', type=int, required=False)
     parser.add_argument('duracao', type=int, required=False)
-
+    parser.add_argument('parecer', type=int, required=False)
     def get(self):
         # parse args
         args = self.parser.parse_args()
@@ -52,7 +52,7 @@ class AulaResource(Resource):
                 return {'message': f"Aula para {args['aluno_id']} em {args['data']} já está cadastrado no sistema."}, 400
             else:
                 # create new aula
-                aula = AulaModel(data=args['data'], aluno_id=args['aluno_id'], duracao=args['duracao'])
+                aula = AulaModel(data=args['data'], aluno_id=args['aluno_id'], duracao=args['duracao'], parecer=args['parecer'])
                 # add aulaf
                 aula.add()
 

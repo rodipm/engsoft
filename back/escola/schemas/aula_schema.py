@@ -6,5 +6,4 @@ from escola.models.aula_model import AulaModel
 # defines user schema
 class AulaSchema(ModelSchema):
     class Meta:
-        fields = ('id', 'aluno_id', 'data', 'duracao')
         model = AulaModel
