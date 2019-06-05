@@ -10,6 +10,7 @@ class AlunoResource(Resource):
     # create parser
     parser = reqparse.RequestParser()
     parser.add_argument('nome', type=str, required=False)
+    parser.add_argument('id', type=int, required=False)
     parser.add_argument('CPF', type=str, required=False)
     parser.add_argument('RG', type=str, required=False)
     parser.add_argument('idade', type=int, required=False)
@@ -26,8 +27,9 @@ class AlunoResource(Resource):
                 return {'message', 'Request Error (GET): No args found'}
 
             # busca por nome ou CPF (baseado nos argumentos passados)
-
-            if args['CPF']:
+            if args['id']:
+                aluno = AlunoModel.find_by_id(args['id'])
+            elif args['CPF']:
                 aluno = AlunoModel.find_by_CPF(args['CPF'])
             elif args['nome']:
                 aluno = AlunoModel.find_by_nome(args['nome'])
