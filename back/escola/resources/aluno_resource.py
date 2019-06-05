@@ -39,7 +39,7 @@ class AlunoResource(Resource):
                 json = schema.dump(aluno).data
             # aluno nao encontrado
             else:
-                return {'message': f"Aluno {args['nome']} not found "}, 404
+                return {'message': f"Aluno {args['nome']} not found"}, 404
 
         except Exception as e:
             print(e)

@@ -2,8 +2,21 @@
 }
 
 #welcome {
-    margin-top: 2em;
+    margin-top: 1em;
     font-family: 'Montserrat Bold', sans-serif;
+    text-align: center;
+}
+
+.bem-vindo {
+    margin-top: 3em;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.logo {
+    margin-right: 3em;
+    width: 10%;
 }
 
 .cards {
@@ -17,6 +30,7 @@
 .texto-homepage {
     font-size: 1.8rem;
     font-family: 'Montserrat Normal', sans-serif;
+    text-align: center;
 }
 
 .card-homepage {
@@ -25,46 +39,12 @@
     transition: 0.3s;
     border: 3px solid #F6F8FA;
     padding: 3em;
-    vertical-align: middle;
     align-items: center;
     justify-content: center;
 }
 
-.background-image {
-    background-image: url(../img/andrew-palmer-255954-unsplash.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
-
 .card-homepage:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-.button-primary {
-    display: flex;
-    font-family: 'Montserrat Bold', sans-serif;
-    font-weight: 600;
-    color: #fff;
-    text-align: center;
-    vertical-align: middle;
-    background-color: #12a2da;
-    border: 3px solid #12a2da;
-    padding: 0.75rem 2rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: 50px;
-    transition: padding 0.3s;
-    align-content: flex-start;
-    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.24);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2em;
-}
-
-.button-primary:hover {
-    padding: 0.75rem 2.5rem;
 }
 
 .vertical-center {
@@ -74,3 +54,9 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
+
+.icon-home {
+    width: 5em;
+    position: relative;
+    margin: 0em 0em 3em 12em;
+}

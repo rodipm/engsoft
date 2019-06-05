@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './registroVoo.css';
-import axios from 'axios';
+/*import axios from 'axios';*/
 import { Navbar } from '../components/navbar'
 
 const url = "http://localhost:5000/aluno"
