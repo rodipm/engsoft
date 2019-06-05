@@ -13,6 +13,7 @@ import {CadastroConfirmacao} from './pages/cadastroConfirmacao';
 import {Homepage} from './pages/homepage';
 import {ConsultaHorasVoo} from './pages/consultaHorasVoo';
 import * as serviceWorker from './serviceWorker';
+import { ConsultaAlunos } from './pages/consultaAlunos';
 
 const routing = (
   <Router>
@@ -25,6 +26,7 @@ const routing = (
       <Route path="/registroVooConfirma" component={RegistroVooConfirma} />
       <Route path="/registroVooDados" component={RegistroVooDados} />
       <Route path="/consultaHorasVoo" component={ConsultaHorasVoo} />
+      <Route path="/consultaAlunos" component={ConsultaAlunos} />
     </div>
   </Router>
   
