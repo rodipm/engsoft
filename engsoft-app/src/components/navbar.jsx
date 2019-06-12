@@ -25,6 +25,7 @@ export class Navbar extends React.Component {
                         <a className= "item-nav" href="/cadastro">Cadastro</a>
                         <a className= "item-nav" href="/registroVoo">Registrar Voo</a>
                         <a className= "item-nav" href="/consultaHorasVoo">Consulta de horas</a>
+                        <a className= "item-nav" href="/consultaAlunos">Consultar Alunos</a>
                         <a className= "item-nav" href="/logout">Logout</a>
                 </div>
             </div>

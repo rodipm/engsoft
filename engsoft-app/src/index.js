@@ -16,6 +16,7 @@ import * as serviceWorker from './serviceWorker';
 import { Login } from './pages/login';
 import { Logout } from './pages/logout';
 import { Backdoor } from './pages/backdoor';
+import { ConsultaAlunos } from './pages/consultaAlunos'
 
 const routing = (
   <Router>
@@ -31,6 +32,7 @@ const routing = (
       <Route path="/registroVooConfirma" component={RegistroVooConfirma} />
       <Route path="/registroVooDados" component={RegistroVooDados} />
       <Route path="/consultaHorasVoo" component={ConsultaHorasVoo} />
+      <Route path="/consultaAlunos" component={ConsultaAlunos} />
     </div>
   </Router>
   
