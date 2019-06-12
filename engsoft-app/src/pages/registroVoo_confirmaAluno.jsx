@@ -1,15 +1,8 @@
 import * as React from 'react';
 import './registroVoo.css';
-import auth from './auth';
 
 export class RegistroVooConfirma extends React.Component{
     render(){
-
-        if(!auth.isAuthenticated()){
-            alert("Permissão necessária para acessar");
-            window.location.href = "/";
-        }
-
         return(
             <div>
                 <form className="fundo">
@@ -18,7 +11,7 @@ export class RegistroVooConfirma extends React.Component{
                         <div className="grey-text">Nome: <b>{this.props.nome}</b></div>
                         <br/>
                         <button type="button" value="dados" onClick={this.props.handleSubmitConfirma} className="button-primary">Confirmar</button>
-                        <button type="button" value="busca" onClick={this.props.handleSubmitConfirma} className="button-primary">Voltar</button>
+                        <button type="button" value="busca" onClick={this.props.handleSubmitConfirma} className="button-secundary">Voltar</button>
                     </div>
                     
                     <br />                  
