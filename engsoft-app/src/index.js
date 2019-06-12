@@ -14,6 +14,8 @@ import {Homepage} from './pages/homepage';
 import {ConsultaHorasVoo} from './pages/consultaHorasVoo';
 import * as serviceWorker from './serviceWorker';
 import { Login } from './pages/login';
+import { Logout } from './pages/logout';
+import './pages/tokenHolder';
 
 const routing = (
   <Router>
@@ -21,6 +23,7 @@ const routing = (
       <Route exact path="/" component={Homepage} />
       <Route path="/cadastro" component={Cadastro} />
       <Route path="/login" component={Login} />
+      <Route path="/logout" component={Logout} />
       <Route path="/cadastroFormulario" component={CadastroFormulario} />
       <Route path="/cadastroConfirmacao" component={CadastroConfirmacao} />
       <Route path="/registroVoo" component={RegistroVoo} />

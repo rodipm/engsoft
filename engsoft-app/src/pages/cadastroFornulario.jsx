@@ -1,6 +1,7 @@
 import React from "react";
 import axios from 'axios';
 import "./cadastroFornulario.css"
+import { getRole } from "./tokenHolder";
 
 const url = "http://127.0.0.1:5000/aluno";
 
@@ -26,6 +27,12 @@ export class CadastroFormulario extends React.Component {
     }
 
     render() {
+
+        if(getRole() == 0){
+            alert("Permissão necessária para acessar");
+            window.location.href = "/";
+        }
+
         return (
             <div>
                 <form className="fundo" onSubmit={this.handleSubmit}>

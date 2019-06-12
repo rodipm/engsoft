@@ -4,9 +4,11 @@ import "./homepage.css"
 import planeIcon from '../img/airplane.svg';
 import calendarIcon from '../img/wall-calendar.svg';
 import birdIcon from '../img/bird.svg';
+import {  setRole, getRole } from "./tokenHolder";
 
 export class Homepage extends React.Component {
     render(){
+        
         return (
             <div>
                 <Navbar />

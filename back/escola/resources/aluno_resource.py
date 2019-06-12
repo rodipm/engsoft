@@ -19,7 +19,7 @@ class AlunoResource(Resource):
 
     def get(self):
         
-
+       
         # tenta obter uma entrada no banco de dados com o CPF do aluno
         try:
 
@@ -29,18 +29,25 @@ class AlunoResource(Resource):
             
             aluno = None
             
-            if args:
+            if not args:
                 return {'message': 'Request Error (GET): No args found'}
             
             # busca por id, nome, CPF, senha  (baseado nos argumentos passados)
-            if  args['senha']:
-                return {'message': 'Credentials Valid'}
+
+            
+
+            if  args['senha'] and args['CPF']:
+                if AlunoModel.find_by_cpf_and_senha(args['CPF'],args['senha']):
+                    return {'message': 'Credentials Valid'}
+                else:
+                    raise Exception('Credentials INVALID')
             elif args['id']:
                 aluno = AlunoModel.find_by_id(args['id'])
             elif args['CPF']:
                 aluno = AlunoModel.find_by_CPF(args['CPF'])
             elif args['nome']:
                 aluno = AlunoModel.find_by_nome(args['nome'])
+                
 
             # aluno encontrado
             if aluno:
@@ -134,3 +141,5 @@ class HorasVooAlunoResource(Resource):
         except Exception as e:
             print(e)
             return {"message": "Something went wrong while getting horas_voo"}, 500
+
+

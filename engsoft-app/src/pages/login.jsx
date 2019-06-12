@@ -2,14 +2,20 @@ import React, { Component } from "react";
 import axios from 'axios';
 import { Navbar } from "../components/navbar";
 import "./login.css"
+import { setRole, getRole } from "./tokenHolder";
+
+
+
 
 const url = "http://127.0.0.1:5000/aluno";
 
 export class Login extends React.Component {
 
+
+
     constructor(props) {
         super(props);
-        this.state = { senha: '' , CPF: '' }
+        this.state = { senha:'', CPF: '' }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -20,9 +26,10 @@ export class Login extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        axios.get(url, this.state)
-            .then(response => {console.log(response.data); alert("Bem-vindo!");})
-            .catch(error => console.error(error));
+        const encodedUrl = url + "?senha=" + this.state.senha + "&CPF=" + this.state.CPF;
+        axios.get(encodedUrl)
+            .then(response => {console.log(response.data); alert("Bem-Vindo!"); setRole(1); alert("Logado ->" + getRole());window.location.href = "/";})
+            .catch(error => alert("Login inválido"));
         console.log(this.state)
     }
 

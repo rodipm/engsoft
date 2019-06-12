@@ -5,6 +5,7 @@ import { Navbar } from '../components/navbar'
 import { RegistroVooBusca } from './registroVoo_busca'
 import { RegistroVooConfirma } from './registroVoo_confirmaAluno'
 import { RegistroVooDados } from './/registroVoo_insereDados'
+import { getRole } from "./tokenHolder";
 
 const url_aluno = "http://localhost:5000/aluno"
 const url_aula = "http://localhost:5000/aula"
@@ -65,6 +66,11 @@ export class RegistroVoo extends React.Component{
 
     render (){
         let page;
+
+        if(getRole() == 0){
+            alert("Permissão necessária para acessar");
+            window.location.href = "/";
+        }
 
         if (this.state.situacao === 'busca')
             page = <RegistroVooBusca handleSubmitBusca={this.handleSubmitBusca} handleChange={this.handleChange} />

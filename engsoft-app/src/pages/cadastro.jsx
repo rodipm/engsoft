@@ -4,6 +4,7 @@ import { CadastroFormulario } from "./cadastroFornulario";
 import { CadastroConfirmacao } from "./cadastroConfirmacao";
 
 import "./cadastro.css"
+import { getRole } from "./tokenHolder";
 
 export class Cadastro extends React.Component {
 
@@ -23,7 +24,14 @@ export class Cadastro extends React.Component {
     }
 
     render() {
+
         let pagina;
+
+        if(getRole() == 0){
+            alert("Permissão necessária para acessar");
+            window.location.href = "/";
+        }
+
         if (this.state.cadastrado)
             pagina = <CadastroConfirmacao nome={this.state.nome} />
         else
@@ -35,5 +43,9 @@ export class Cadastro extends React.Component {
                 {pagina}
             </div>
         );
+        
+        
+        
+            
     };
 };

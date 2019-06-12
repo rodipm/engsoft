@@ -1,9 +1,14 @@
 import React from "react";
 
 import "./cadastroConfirmacao.css"
+import { getRole} from "./tokenHolder";
 
 export class CadastroConfirmacao extends React.Component {
     render() {
+        if(getRole() == 0){
+            alert("Permissão necessária para acessar");
+            window.location.href = "/";
+        }
         return (
             <div className="container " id="cadastro-sucesso">
                 <div className="container row cards">
