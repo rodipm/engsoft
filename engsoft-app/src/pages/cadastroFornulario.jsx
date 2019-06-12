@@ -22,7 +22,7 @@ export class CadastroFormulario extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         axios.post(url, this.state)
-            .then(response => this.props.handleSubmitPostCallback())
+            .then(response => this.props.handleSubmitPostCallback(response.data))
             .catch(error => console.error(error));
     }
 
