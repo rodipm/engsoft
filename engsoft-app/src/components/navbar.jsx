@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./navbar.css";
 import birdIcon from '../img/bird.svg';
-import {  getRole } from "../pages/tokenHolder";
+import auth from "../pages/auth";
+
 
 export class Navbar extends React.Component {
     render(){
-        alert("ROLE : "+ getRole());
-        if( getRole() == 0){
+        if(!auth.isAuthenticated()){
             return (
                 <div className="container-fluid" id="navbar">
                     <div className="navbar container">

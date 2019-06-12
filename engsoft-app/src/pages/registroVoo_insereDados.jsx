@@ -2,12 +2,12 @@ import * as React from 'react';
 import './registroVoo.css';
 import * as Datetime from 'react-datetime';
 import "../../node_modules/react-datetime/css/react-datetime.css";
-import { getRole } from "./tokenHolder";
+import auth from './auth';
 
 export class RegistroVooDados extends React.Component{
     render (){
 
-        if(getRole() == 0){
+        if(!auth.isAuthenticated()){
             alert("Permissão necessária para acessar");
             window.location.href = "/";
         }

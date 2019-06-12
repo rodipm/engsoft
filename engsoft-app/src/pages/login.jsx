@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import { Navbar } from "../components/navbar";
 import "./login.css"
-import { setRole, getRole } from "./tokenHolder";
-
+import auth from "./auth"
 
 
 
@@ -28,7 +27,7 @@ export class Login extends React.Component {
         event.preventDefault();
         const encodedUrl = url + "?senha=" + this.state.senha + "&CPF=" + this.state.CPF;
         axios.get(encodedUrl)
-            .then(response => {console.log(response.data); alert("Bem-Vindo!"); setRole(1); alert("Logado ->" + getRole());window.location.href = "/";})
+            .then(response => {console.log(response.data); alert("Bem-Vindo!"); auth.login(); window.location.href = "/";})
             .catch(error => alert("Login inválido"));
         console.log(this.state)
     }

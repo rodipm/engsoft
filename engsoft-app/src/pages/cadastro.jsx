@@ -4,7 +4,7 @@ import { CadastroFormulario } from "./cadastroFornulario";
 import { CadastroConfirmacao } from "./cadastroConfirmacao";
 
 import "./cadastro.css"
-import { getRole } from "./tokenHolder";
+import auth from "./auth";
 
 export class Cadastro extends React.Component {
 
@@ -27,7 +27,7 @@ export class Cadastro extends React.Component {
 
         let pagina;
 
-        if(getRole() == 0){
+        if(!auth.isAuthenticated()){
             alert("Permissão necessária para acessar");
             window.location.href = "/";
         }

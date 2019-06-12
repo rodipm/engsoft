@@ -15,7 +15,6 @@ import {ConsultaHorasVoo} from './pages/consultaHorasVoo';
 import * as serviceWorker from './serviceWorker';
 import { Login } from './pages/login';
 import { Logout } from './pages/logout';
-import './pages/tokenHolder';
 
 const routing = (
   <Router>

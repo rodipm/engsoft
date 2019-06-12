@@ -1,13 +1,13 @@
 import * as React from 'react';
 import './registroVoo.css';
-import { getRole } from "./tokenHolder";
+import auth from './auth';
 
 const url = "http://localhost:5000/aluno"
 
 export class RegistroVooBusca extends React.Component{
     render (){
 
-        if(getRole() == 0){
+        if(!auth.isAuthenticated()){
             alert("Permissão necessária para acessar");
             window.location.href = "/";
         }
