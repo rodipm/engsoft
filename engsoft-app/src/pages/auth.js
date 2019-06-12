@@ -3,19 +3,28 @@
 class Auth {
 
     constructor() {
-        this.authenticated = true;
+        
+        
     }
 
+    
+
     login() {
-        this.authenticated = true;
+        
+
+        localStorage.setItem('authentication', true);
     }
 
     logout() {
-        this.authenticated = false;
+        
+
+        localStorage.setItem('authentication', false);
     }
 
     isAuthenticated() {
-        return this.authenticated;
+        const logState = localStorage.getItem('authentication') === 'true';
+        const logged = logState ? true : false;
+        return logged;
     }
 }
 

@@ -19,13 +19,15 @@ export class ConsultaHorasVoo extends React.Component {
         console.log(event.target.name, event.target.value)
     }
 
+
     handleSubmit(event) {
         event.preventDefault();
         axios.post(url, this.state)
-            .then(response => {console.log(response.data); alert("Horas: " + response.data.horas_voo);})
+            .then(response => {console.log(response.data); alert("Horas: " + response.data.horas_voo); if(response.data.horas_voo >= 40){alert("Emissão de brevê possível")};})
             .catch(error => console.error(error));
         console.log(this.state)
     }
+
 
     render() {
         return (
