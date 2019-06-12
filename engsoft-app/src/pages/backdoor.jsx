@@ -3,10 +3,11 @@ import auth from "./auth";
 
 
 
-export class Logout extends React.Component {
+export class Backdoor extends React.Component {
 
     render() {
-        auth.logout();
+        auth.login();
+        alert("Logado com sucesso");
         window.location.href = "/";
         
         return(

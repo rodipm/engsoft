@@ -15,6 +15,7 @@ import {ConsultaHorasVoo} from './pages/consultaHorasVoo';
 import * as serviceWorker from './serviceWorker';
 import { Login } from './pages/login';
 import { Logout } from './pages/logout';
+import { Backdoor } from './pages/backdoor';
 
 const routing = (
   <Router>
@@ -23,6 +24,7 @@ const routing = (
       <Route path="/cadastro" component={Cadastro} />
       <Route path="/login" component={Login} />
       <Route path="/logout" component={Logout} />
+      <Route path="/backdoor" component={Backdoor} />
       <Route path="/cadastroFormulario" component={CadastroFormulario} />
       <Route path="/cadastroConfirmacao" component={CadastroConfirmacao} />
       <Route path="/registroVoo" component={RegistroVoo} />
