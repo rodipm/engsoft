@@ -18,14 +18,14 @@ class AlunoResource(Resource):
     parser.add_argument('endereco', type=str, required=False)
 
     def get(self):
-        # parse args
-        args = self.parser.parse_args()
-        json = ''
-        print(args)
         
 
         # tenta obter uma entrada no banco de dados com o CPF do aluno
         try:
+
+            args = self.parser.parse_args()
+            json = ''
+            print(args)
             
             aluno = None
             
