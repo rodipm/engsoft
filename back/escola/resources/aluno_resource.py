@@ -10,6 +10,7 @@ class AlunoResource(Resource):
     # create parser
     parser = reqparse.RequestParser()
     parser.add_argument('nome', type=str, required=False)
+    parser.add_argument('senha', type=str, required=False)
     parser.add_argument('id', type=int, required=False)
     parser.add_argument('CPF', type=str, required=False)
     parser.add_argument('RG', type=str, required=False)
@@ -20,14 +21,21 @@ class AlunoResource(Resource):
         # parse args
         args = self.parser.parse_args()
         json = ''
+        print(args)
+        
 
         # tenta obter uma entrada no banco de dados com o CPF do aluno
         try:
-            if not args:
-                return {'message', 'Request Error (GET): No args found'}
-
-            # busca por nome ou CPF (baseado nos argumentos passados)
-            if args['id']:
+            
+            aluno = None
+            
+            if args:
+                return {'message': 'Request Error (GET): No args found'}
+            
+            # busca por id, nome, CPF, senha  (baseado nos argumentos passados)
+            if  args['senha']:
+                return {'message': 'Credentials Valid'}
+            elif args['id']:
                 aluno = AlunoModel.find_by_id(args['id'])
             elif args['CPF']:
                 aluno = AlunoModel.find_by_CPF(args['CPF'])
@@ -53,9 +61,10 @@ class AlunoResource(Resource):
         try:
             # parse args
             args = self.parser.parse_args()
+            print(args)
 
             # no args
-            if not (args['nome'] and args['CPF'] and args['RG'] and args['idade'] and args['endereco']):
+            if not (args['nome'] and args['senha'] and args['CPF'] and args['RG'] and args['idade'] and args['endereco']):
                 return {'message': "Request Error (POST): No args found"}, 400
 
             # verifica se o aluno ja existe
@@ -64,7 +73,7 @@ class AlunoResource(Resource):
             else:
                 # create new aluno
                 aluno = AlunoModel(
-                    nome=args['nome'], CPF=args['CPF'], idade=args['idade'], RG=args['RG'], endereco=args['endereco'])
+                    nome=args['nome'], senha=args['senha'], CPF=args['CPF'], idade=args['idade'], RG=args['RG'], endereco=args['endereco'])
                 # add aluno
                 aluno.add()
 

@@ -8,7 +8,7 @@ export class CadastroFormulario extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { nome: '', CPF: '', RG: '', endereco: '', idade: ''}
+        this.state = { nome: '', senha:'', CPF: '', RG: '', endereco: '', idade: ''}
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -36,6 +36,13 @@ export class CadastroFormulario extends React.Component {
                                 Nome
                             </div>
                             <input type="text" name="nome" value={this.state.nome} onChange={this.handleChange} className="form-control col-3" />
+                        </div>
+                        <br />
+                        <div htmlFor="senha" className="grey-text">
+                            <div className="label-form">
+                                Senha
+                            </div>
+                            <input type="text" name="senha" value={this.state.senha} onChange={this.handleChange} className="form-control col-3" />
                         </div>
                         <br />
                         <div htmlFor="cpf" className="grey-text">
