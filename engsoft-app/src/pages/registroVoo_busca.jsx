@@ -2,7 +2,7 @@ import * as React from 'react';
 import './registroVoo.css';
 import auth from './auth';
 
-const url = "http://localhost:5000/aluno"
+const url = "http://ec2-54-86-235-139.compute-1.amazonaws.com:5000/aluno"
 
 export class RegistroVooBusca extends React.Component{
     render (){

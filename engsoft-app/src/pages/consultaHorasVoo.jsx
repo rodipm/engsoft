@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import { Navbar } from "../components/navbar";
+import { NotificacaoConsultaHoras } from "../components/notificacaoConsultasHoras";
 import "./cadastro.css"
 
-const url = "http://127.0.0.1:5000/aluno/horas_voo";
+const url = "http://ec2-54-86-235-139.compute-1.amazonaws.com:5000/aluno/horas_voo";
 
 export class ConsultaHorasVoo extends React.Component {
 

@@ -7,8 +7,8 @@ import { RegistroVooConfirma } from './registroVoo_confirmaAluno'
 import { RegistroVooDados } from './/registroVoo_insereDados'
 import auth from './auth';
 
-const url_aluno = "http://localhost:5000/aluno"
-const url_aula = "http://localhost:5000/aula"
+const url_aluno = "http://ec2-54-86-235-139.compute-1.amazonaws.com:5000/aluno"
+const url_aula = "http://ec2-54-86-235-139.compute-1.amazonaws.com:5000/aula"
 
 export class RegistroVoo extends React.Component{
     constructor(props) {
