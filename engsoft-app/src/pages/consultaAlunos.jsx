@@ -5,7 +5,7 @@ import "./cadastro.css"
 import "./consultaAlunos.css"
 import auth from "./auth";
 
-const url = "http://ec2-54-86-235-139.compute-1.amazonaws.com:5000/alunos";
+const url = "http://localhost:5000/alunos";
 
 export class ConsultaAlunos extends React.Component {
 

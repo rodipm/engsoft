@@ -4,7 +4,7 @@ import { Navbar } from "../components/navbar";
 import { NotificacaoConsultaHoras } from "../components/notificacaoConsultasHoras";
 import "./cadastro.css"
 
-const url = "http://ec2-54-86-235-139.compute-1.amazonaws.com:5000/aluno/horas_voo";
+const url = "http://localhost:5000/aluno/horas_voo";
 
 export class ConsultaHorasVoo extends React.Component {
 

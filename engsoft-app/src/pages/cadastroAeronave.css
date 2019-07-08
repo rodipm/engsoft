@@ -1,0 +1,25 @@
+#formulario {
+	margin-top: 1em;
+}
+
+.titulo{
+    text-align: center;
+	margin-top: 2%;
+	font-family: 'Montserrat Bold', sans-serif;
+}
+
+.label-form {
+	font-family: 'Montserrat Light', sans-serif;
+}
+
+.grey-text {
+	text-align: center;
+	margin-top: 1em;
+}
+
+.form-control {
+    text-align: center;
+	font-family: 'Montserrat Normal', sans-serif;
+	margin-left: auto;
+	margin-right: auto;
+}

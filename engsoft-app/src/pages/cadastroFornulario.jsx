@@ -3,7 +3,7 @@ import axios from 'axios';
 import "./cadastroFornulario.css"
 import auth from "./auth";
 
-const url = "http://ec2-54-86-235-139.compute-1.amazonaws.com:5000/aluno";
+const url = "http://localhost:5000/aluno";
 
 export class CadastroFormulario extends React.Component {
 

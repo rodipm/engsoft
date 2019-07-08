@@ -17,6 +17,10 @@ import { Login } from './pages/login';
 import { Logout } from './pages/logout';
 import { Backdoor } from './pages/backdoor';
 import { ConsultaAlunos } from './pages/consultaAlunos'
+import { CadastroAeronave } from './pages/cadastroAeronave'
+import { ConsultarAeronaves } from './pages/consultaAeronaves';
+import { Registro } from './pages/registro';
+import { AlterarStatus } from './pages/alterarStatus';
 
 const routing = (
   <Router>
@@ -33,6 +37,10 @@ const routing = (
       <Route path="/registroVooDados" component={RegistroVooDados} />
       <Route path="/consultaHorasVoo" component={ConsultaHorasVoo} />
       <Route path="/consultaAlunos" component={ConsultaAlunos} />
+      <Route path="/cadastraAeronave" component={CadastroAeronave} />
+      <Route path="/consultaAeronaves" component={ConsultarAeronaves} />
+      <Route path="/registro" component={Registro} />
+      <Route path="/alterarStatus" component={AlterarStatus} />
     </div>
   </Router>
   
