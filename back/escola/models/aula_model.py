@@ -9,13 +9,15 @@ class AulaModel(Base):
     aluno = db.relationship("AlunoModel", backref="aulas")
     duracao = db.Column(db.Integer, nullable=False)
     parecer = db.Column(db.Integer, nullable=False)
+    identificacao = db.Column(db.String(50),  unique=False, nullable=False)
 
 
-    def __init__(self, aluno_id, data, duracao, parecer):
+    def __init__(self, aluno_id, data, duracao, parecer, identificacao):
         self.data = data
         self.aluno_id = aluno_id
         self.duracao = duracao
         self.parecer = parecer
+        self.identificacao = identificacao
 
     # adiciona uma linha na respectiva tabela
     def add(self):

@@ -19,7 +19,8 @@ export class RegistroVoo extends React.Component{
             nome: '',
             duracao: '',
             data: '',
-            parecer: ''
+            parecer: '',
+            identificacao: ''
         };
         this.handleSubmitBusca = this.handleSubmitBusca.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -58,7 +59,8 @@ export class RegistroVoo extends React.Component{
             aluno_id: this.state.aluno_id,
             duracao: this.state.duracao,
             data: this.state.data,
-            parecer: this.state.parecer
+            parecer: this.state.parecer,
+            identificacao: this.state.identificacao
         }).then((response) => {
                 this.setState({ situacao: 'busca' })
             }).catch(err => console.error(err));

@@ -19,6 +19,7 @@ class AeronaveResource(Resource):
             aeronave = None
 
             aeronave = AeronaveModel.find_by_identificacao(args['identificacao'])
+            aeronaveOriginal = aeronave
 
             print("aeronave:", aeronave)
 
@@ -32,7 +33,7 @@ class AeronaveResource(Resource):
                 identificacao=identificacao, modelo=modelo, status=status)
             aeronave.add()
 
-            if aeronave:
+            if aeronaveOriginal:
                 schema = AeronaveSchema()
                 json = schema.dump(aeronave).data
             else:

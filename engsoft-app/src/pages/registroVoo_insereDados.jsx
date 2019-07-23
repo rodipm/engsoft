@@ -3,8 +3,36 @@ import './registroVoo.css';
 import * as Datetime from 'react-datetime';
 import "../../node_modules/react-datetime/css/react-datetime.css";
 import auth from './auth';
+import axios from 'axios';
+
+const url = "http://localhost:5000/aeronaves";
+var i;
 
 export class RegistroVooDados extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            aeronaves: []
+        }
+    }
+
+    componentDidMount() {
+        axios.get(url)
+                .then(response => {console.log(response.data); 
+                    let j = 0;
+                    for(i = 0; i < response.data.length; i++) {
+                        if(response.data[i].status == "Operacional") {
+                            let a = this.state.aeronaves.slice(); 
+                            a[j] = response.data[i];
+                            j++;
+                            this.setState({aeronaves: a});
+                        }
+                    }
+                })
+                .catch(error => console.error(error));
+        this.state.flag = false;
+    }
+    
     render (){
 
         if(!auth.isAuthenticated()){
@@ -31,6 +59,17 @@ export class RegistroVooDados extends React.Component{
                         </div>
                         <input type="text" name="duracao" onChange={this.props.handleChange} className="col-3"/>
                     </div>
+
+                    <br />
+                    <div className="texto-nMatricula">
+                        Aeronave do Voo pela identificação:
+                    </div>
+                    <select name="identificacao" onChange={this.props.handleChange} className="form-control col-3">
+                        <option>Aeronaves</option>
+                        {this.state.aeronaves.map(aeronave => {
+                            return <option key = {aeronave.identificacao} value={aeronave.identificacao}>{aeronave.identificacao}</option>
+                        })}
+                    </select>
 
                     <br />
                     
