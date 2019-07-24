@@ -53,7 +53,7 @@ class AulaResource(Resource):
                 return {'message': f"Aula para {args['aluno_id']} em {args['data']} já está cadastrado no sistema."}, 400
             else:
                 # create new aula
-                aula = AulaModel(data=args['data'], aluno_id=args['aluno_id'], duracao=args['duracao'], parecer=args['parecer'], identificacao=arg['identificacao'])
+                aula = AulaModel(data=args['data'], aluno_id=args['aluno_id'], duracao=args['duracao'], parecer=args['parecer'], identificacao=args['identificacao'])
                 # add aulaf
                 aula.add()
 
